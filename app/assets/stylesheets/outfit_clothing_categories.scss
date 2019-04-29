@@ -1,0 +1,36 @@
+$gray: #ccc;
+
+.category-item {
+  display: block;
+}
+
+.table-header-rotated {
+  border-collapse: collapse;
+
+  td {
+    border: 1px solid $gray;
+    padding: 10px 5px;
+    text-align: center;
+  }
+
+  th.rotate {
+    height: 140px;
+    white-space: nowrap;
+
+    > div {
+      // Magic Numbers & 45 is really 360 - 45
+      transform: translate(21px, 49px) rotate(315deg);
+      width: 35px;
+    }
+
+    > div > span {
+      border-bottom: 1px solid $gray;
+      padding: 5px 10px;
+    }
+  }
+
+  th.row-header {
+    border-bottom: 1px solid $gray;
+    padding: 0 10px;
+  }
+}

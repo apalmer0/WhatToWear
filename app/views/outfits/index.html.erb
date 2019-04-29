@@ -2,17 +2,29 @@
 
 <h1>Outfits</h1>
 
-<table>
+<table class="table table-header-rotated">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th></th>
+      <%- @categories.each do |category| %>
+        <th class="rotate">
+          <div><span><%= category.name %></span></div>
+        </th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @outfits.each do |outfit| %>
       <tr>
-        <td><%= outfit.worn_on.strftime("%b %e, %Y") %></td>
+        <th class="row-header"><%= outfit.worn_on.strftime("%b %e, %Y") %></th>
+        <%- @categories.each do |category| %>
+          <%- if outfit.clothing_categories.include?(category) %>
+            <td>X</td>
+          <%- else %>
+            <td></td>
+          <% end %>
+        <% end %>
         <td><%= link_to 'Show', outfit %></td>
         <td><%= link_to 'Edit', edit_outfit_path(outfit) %></td>
         <td><%= link_to 'Destroy', outfit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

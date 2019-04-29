@@ -24,7 +24,8 @@ class OutfitsController < ApplicationController
   end
 
   def index
-    @outfits = Outfit.all
+    @outfits = Outfit.all.includes(:clothing_categories)
+    @categories ||= ClothingCategory.all
   end
 
   def show
