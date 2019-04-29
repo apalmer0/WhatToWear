@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190421012005) do
+ActiveRecord::Schema.define(version: 20190429040845) do
 
   create_table "clothing_categories", force: :cascade do |t|
     t.string "name", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20190421012005) do
   create_table "outfits", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "worn_on"
   end
 
 end

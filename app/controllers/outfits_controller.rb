@@ -1,4 +1,7 @@
 class OutfitsController < ApplicationController
+  before_action :set_outfit, only: [:show, :edit, :destroy]
+  before_action :set_categories, only: [:show, :edit]
+
   def create
     @outfit = Outfit.new
 
@@ -25,17 +28,12 @@ class OutfitsController < ApplicationController
   end
 
   def show
-    @outfit = Outfit.find(params[:id])
-    @categories = @outfit.clothing_categories
   end
 
   def edit
-    @outfit = Outfit.find(params[:id])
-    @categories = @outfit.clothing_categories
   end
 
   def destroy
-    @outfit = Outfit.find(params[:id])
     @outfit.destroy
     respond_to do |format|
       format.html { redirect_to outfits_url, notice: 'Outfit was successfully destroyed.' }
@@ -52,6 +50,11 @@ class OutfitsController < ApplicationController
     outfit_params.require(:outfit_clothing_categories)
   end
 
-  def clothing_categories
+  def set_outfit
+    @outfit = Outfit.find(params[:id])
+  end
+
+  def set_categories
+    @categories = @outfit.clothing_categories
   end
 end
