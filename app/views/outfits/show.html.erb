@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @outfit %>
+  <strong>Clothing Categories:</strong>
+  <%- @outfit.clothing_categories.map do |category| %>
+    <%= category.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Back', outfits_path %>
