@@ -1,9 +1,9 @@
 if Rails.env.development?
-  OutfitClothingCategory.destroy_all
-  ClothingCategory.destroy_all
+  OutfitClothingItem.destroy_all
+  ClothingItem.destroy_all
   Outfit.destroy_all
 
-  CATEGORIES = [
+  ITEMS = [
     "Short Socks",
     "Long Socks",
     "Sneakers",
@@ -31,5 +31,5 @@ if Rails.env.development?
     "Beanie",
   ]
 
-  CATEGORIES.each { |category| ClothingCategory.create(name: category) }
+  ITEMS.each { |item| ClothingItem.create(name: item) }
 end

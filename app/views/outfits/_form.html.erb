@@ -1,8 +1,8 @@
 <%= form_for(outfit) do |form| %>
-  <%- @categories.each do |category| %>
-    <div class="category-item">
-      <%= form.label category.name %>
-      <%= form.check_box("outfit_clothing_categories", { multiple: true }, category.id, nil) %>
+  <%- @clothing_items.each do |item| %>
+    <div class="clothing-item">
+      <%= form.label item.name %>
+      <%= form.check_box("outfit_clothing_items", { multiple: true }, item.id, nil) %>
     </div>
   <% end %>
   <div class="actions">

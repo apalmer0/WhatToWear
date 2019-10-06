@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th></th>
-      <%- @categories.each do |category| %>
+      <%- @clothing_items.each do |item| %>
         <th class="rotate">
-          <div><span><%= category.name %></span></div>
+          <div><span><%= item.name %></span></div>
         </th>
       <% end %>
     </tr>
@@ -18,8 +18,8 @@
     <% @outfits.each do |outfit| %>
       <tr>
         <th class="row-header"><%= outfit.worn_on.strftime("%b %e, %Y") %></th>
-        <%- @categories.each do |category| %>
-          <%- if outfit.clothing_categories.include?(category) %>
+        <%- @clothing_items.each do |item| %>
+          <%- if outfit.clothing_items.include?(item) %>
             <td>X</td>
           <%- else %>
             <td></td>

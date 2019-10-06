@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Clothing Categories:</strong>
-  <%- @outfit.clothing_categories.map do |category| %>
-    <%= category.name %>
+  <strong>Clothing Items:</strong>
+  <%- @outfit.clothing_items.map do |item| %>
+    <%= item.name %>
   <% end %>
 </p>
 
